@@ -28,7 +28,7 @@ extension AnimatedWidgetExtension on Widget {
     }
 
     List<fa.Effect> effects = animationInfo.effectsBuilder();
-    var animated = animate();
+    var animated = ffAnimate();
 
     for (final effect in effects) {
       animated = animated.addEffect(effect);
@@ -56,42 +56,72 @@ extension SafeAnimateExtension on Widget {
   ///
   /// Use `ffAnimate()` in generated widgets instead of `.animate()` so tests can
   /// opt-out of animations without conflicting with the package extension.
-  dynamic ffAnimate() {
-    if (_enableFlutterFlowAnimations) {
-      // Call the package extension method via the prefixed import to get the
-      // real Animate object without bringing the extension into this file's
-      // unprefixed scope.
-      return fa.AnimateWidgetExtensions(this).animate();
-    }
-
-    return _NoopAnimate(child: this);
-  }
+  AnimateWrapper ffAnimate() => AnimateWrapper(child: this);
 }
+// No-op class removed; AnimateWrapper handles both enabled/disabled paths.
 
-class _NoopAnimate extends StatelessWidget {
+/// Lightweight wrapper that provides the chainable API used by the
+/// FlutterFlow-generated code but builds to a real `fa.Animate` when
+/// animations are enabled.
+class AnimateWrapper extends StatelessWidget {
   final Widget child;
+  final List<fa.Effect> _effects = [];
 
-  const _NoopAnimate({required this.child});
+  AnimateWrapper({super.key, required this.child});
 
-  // Keep chainable API used in generated code.
-  _NoopAnimate addEffect(fa.Effect e) => this;
+  AnimateWrapper addEffect(fa.Effect e) {
+    _effects.add(e);
+    return this;
+  }
 
-  _NoopAnimate move({
+  AnimateWrapper move({
     Curve? curve,
     Duration? delay,
     Duration? duration,
     Offset? begin,
     Offset? end,
-  }) => this;
+  }) {
+    _effects.add(
+      fa.MoveEffect(
+        begin: begin ?? Offset.zero,
+        end: end ?? Offset.zero,
+        duration: duration ?? const Duration(milliseconds: 300),
+        curve: curve ?? Curves.linear,
+        delay: delay ?? Duration.zero,
+      ),
+    );
+    return this;
+  }
 
-  _NoopAnimate fade({
+  AnimateWrapper fade({
     Curve? curve,
     Duration? delay,
     Duration? duration,
     double? begin,
     double? end,
-  }) => this;
+  }) {
+    _effects.add(
+      fa.FadeEffect(
+        begin: begin ?? 0.0,
+        end: end ?? 1.0,
+        duration: duration ?? const Duration(milliseconds: 300),
+        curve: curve ?? Curves.linear,
+        delay: delay ?? Duration.zero,
+      ),
+    );
+    return this;
+  }
 
   @override
-  Widget build(BuildContext context) => child;
+  Widget build(BuildContext context) {
+    if (!_enableFlutterFlowAnimations || _effects.isEmpty) {
+      return child;
+    }
+
+    var animateWidget = fa.AnimateWidgetExtensions(child).animate();
+    for (final e in _effects) {
+      animateWidget = animateWidget.addEffect(e);
+    }
+    return animateWidget as Widget;
+  }
 }
