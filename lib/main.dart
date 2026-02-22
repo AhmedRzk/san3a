@@ -114,7 +114,7 @@ class _MainWidgetState extends State<MainWidget> {
                         },
                       );
                     },
-                    text: 'Sign Not In',
+                    text: 'Sign In',
                     options: FFButtonOptions(
                       height: 40,
                       padding:
