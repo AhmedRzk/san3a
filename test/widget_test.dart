@@ -8,13 +8,22 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:san3a/main.dart';
+import 'test_helpers.dart';
 
 void main() {
+  setUpAll(() {
+    disableFlutterFlowAnimations();
+  });
+
+  tearDownAll(() {
+    restoreFlutterFlowAnimations();
+  });
+
   testWidgets('MainWidget displays correctly', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MaterialApp(home: MainWidget()));
 
     // Verify that the main widget is rendered.
     expect(find.byType(MainWidget), findsOneWidget);
-  }, skip: true);
+  });
 }

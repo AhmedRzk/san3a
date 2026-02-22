@@ -1,6 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 
@@ -72,7 +72,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                         alignment: Alignment.center,
                       ),
                     )
-                    .animate()
+                    .ffAnimate()
                     .move(
                       curve: Curves.easeInOut,
                       duration: 2000.0.ms,
@@ -234,7 +234,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           elevation: 0,
                           borderRadius: BorderRadius.circular(8),
                         ),
-                      ).animate().fade(
+                      ).ffAnimate().fade(
                         curve: Curves.easeInOut,
                         delay: 1000.0.ms,
                         duration: 2000.0.ms,

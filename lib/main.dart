@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'sign_in.dart';
@@ -87,7 +87,7 @@ class _MainWidgetState extends State<MainWidget> {
                         fit: BoxFit.cover,
                       ),
                     )
-                    .animate()
+                    .ffAnimate()
                     .move(
                       curve: Curves.easeInOut,
                       duration: 2000.0.ms,
@@ -142,7 +142,7 @@ class _MainWidgetState extends State<MainWidget> {
                           elevation: 0,
                           borderRadius: BorderRadius.circular(8),
                         ),
-                      ).animate().fade(
+                      ).ffAnimate().fade(
                         delay: 1000.ms,
                         duration: 2000.ms,
                         begin: 0.0,
@@ -190,7 +190,7 @@ class _MainWidgetState extends State<MainWidget> {
                           elevation: 0,
                           borderRadius: BorderRadius.circular(8),
                         ),
-                      ).animate().fade(
+                      ).ffAnimate().fade(
                         delay: 1000.ms,
                         duration: 2000.ms,
                         begin: 0.0,
