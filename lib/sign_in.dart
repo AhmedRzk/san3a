@@ -63,15 +63,15 @@ class _SignInWidgetState extends State<SignInWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'assets/images/1trlz_0.png',
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
-                    alignment: Alignment.center,
-                  ),
-                )
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/images/1trlz_0.png',
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                      ),
+                    )
                     .animate()
                     .move(
                       curve: Curves.easeInOut,
@@ -119,24 +119,30 @@ class _SignInWidgetState extends State<SignInWidget> {
                           color: FlutterFlowTheme.of(context).error,
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).error,
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
                       ),
                       filled: true,
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                      fillColor: FlutterFlowTheme.of(
+                        context,
+                      ).secondaryBackground,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     cursorColor: FlutterFlowTheme.of(context).primaryText,
                     enableInteractiveSelection: true,
-                    validator:
-                        _model.textController1Validator.asValidator(context),
+                    validator: _model.textController1Validator.asValidator(
+                      context,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -172,48 +178,63 @@ class _SignInWidgetState extends State<SignInWidget> {
                           color: FlutterFlowTheme.of(context).error,
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).error,
                           width: 1,
                         ),
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8),
+                        ),
                       ),
                       filled: true,
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                      fillColor: FlutterFlowTheme.of(
+                        context,
+                      ).secondaryBackground,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     cursorColor: FlutterFlowTheme.of(context).primaryText,
                     enableInteractiveSelection: true,
-                    validator:
-                        _model.textController2Validator.asValidator(context),
+                    validator: _model.textController2Validator.asValidator(
+                      context,
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () => _logger.info('SignIn pressed ...'),
-                    text: 'Sign In',
-                    options: FFButtonOptions(
-                      height: 40,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(97, 0, 97, 0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      color: const Color(0xFF325D3A),
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
+                  child:
+                      FFButtonWidget(
+                        onPressed: () => _logger.info('SignIn pressed ...'),
+                        text: 'Sign In',
+                        options: FFButtonOptions(
+                          height: 40,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                            97,
+                            0,
+                            97,
+                            0,
+                          ),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            0,
+                            0,
+                            0,
+                          ),
+                          color: const Color(0xFF325D3A),
+                          textStyle: FlutterFlowTheme.of(context).titleSmall
+                              .override(
                                 font: GoogleFonts.interTight(),
                                 color: Colors.white,
                                 letterSpacing: 0.0,
                               ),
-                      elevation: 0,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ).animate().fade(
+                          elevation: 0,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ).animate().fade(
                         curve: Curves.easeInOut,
                         delay: 1000.0.ms,
                         duration: 2000.0.ms,

@@ -61,11 +61,13 @@ class FFButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bg = options?.color ?? options?.fillColor;
-    final txtStyle = options?.textStyle ?? TextStyle(
-      color: options?.textColor,
-      fontSize: options?.fontSize,
-      fontWeight: options?.fontWeight,
-    );
+    final txtStyle =
+        options?.textStyle ??
+        TextStyle(
+          color: options?.textColor,
+          fontSize: options?.fontSize,
+          fontWeight: options?.fontWeight,
+        );
 
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
@@ -73,7 +75,9 @@ class FFButtonWidget extends StatelessWidget {
         backgroundColor: bg,
         elevation: options?.elevation,
         minimumSize: Size(0, options?.height ?? 40),
-        padding: options?.padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding:
+            options?.padding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: _toBorderRadius(options?.borderRadius),
         ),
@@ -95,10 +99,7 @@ class FFButtonWidget extends StatelessWidget {
               child: CircularProgressIndicator(strokeWidth: 2),
             )
           else
-            Text(
-              text,
-              style: txtStyle,
-            ),
+            Text(text, style: txtStyle),
         ],
       ),
     );

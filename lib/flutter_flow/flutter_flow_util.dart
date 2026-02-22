@@ -30,18 +30,27 @@ class TransitionInfo {
   final bool hasTransition;
   final PageTransitionType transitionType;
 
-  const TransitionInfo({this.hasTransition = false, this.transitionType = PageTransitionType.fade});
+  const TransitionInfo({
+    this.hasTransition = false,
+    this.transitionType = PageTransitionType.fade,
+  });
 }
 
 /// Navigation helpers to mimic FlutterFlow's `context.pushNamed(...)` API.
 extension NavigationExtensions on BuildContext {
-  Future<T?> pushNamed<T extends Object?>(String name, {Map<String, dynamic>? extra}) {
+  Future<T?> pushNamed<T extends Object?>(
+    String name, {
+    Map<String, dynamic>? extra,
+  }) {
     // The FlutterFlow transition info is provided in `extra['__transition_info__']`.
     // For simplicity we ignore transition animations here and use standard named routing.
     return Navigator.pushNamed<T>(this, name);
   }
 
-  Future<T?> pushReplacementNamed<T extends Object?, TO extends Object?>(String name, {Map<String, dynamic>? extra}) {
+  Future<T?> pushReplacementNamed<T extends Object?, TO extends Object?>(
+    String name, {
+    Map<String, dynamic>? extra,
+  }) {
     return Navigator.pushReplacementNamed<T, TO>(this, name);
   }
 }

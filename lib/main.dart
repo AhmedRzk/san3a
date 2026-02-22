@@ -79,14 +79,14 @@ class _MainWidgetState extends State<MainWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'assets/images/1trlz_0.png',
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
-                )
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/images/1trlz_0.png',
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    )
                     .animate()
                     .move(
                       curve: Curves.easeInOut,
@@ -103,35 +103,46 @@ class _MainWidgetState extends State<MainWidget> {
                     ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      await context.pushNamed(
-                        SignInWidget.routePath,
-                        extra: <String, dynamic>{
-                          '__transition_info__': const TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade),
+                  child:
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await context.pushNamed(
+                            SignInWidget.routePath,
+                            extra: <String, dynamic>{
+                              '__transition_info__': const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    text: 'Sign In',
-                    options: FFButtonOptions(
-                      height: 40,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(100, 0, 100, 0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      // Consider moving this color to your theme.
-                      color: const Color(0xFF325D3A),
-                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                            font: GoogleFonts.interTight(),
-                            color: Colors.white,
-                            letterSpacing: 0.0,
+                        text: 'Sign In',
+                        options: FFButtonOptions(
+                          height: 40,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                            100,
+                            0,
+                            100,
+                            0,
                           ),
-                      elevation: 0,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ).animate().fade(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            0,
+                            0,
+                            0,
+                          ),
+                          // Consider moving this color to your theme.
+                          color: const Color(0xFF325D3A),
+                          textStyle: FlutterFlowTheme.of(context).titleSmall
+                              .override(
+                                font: GoogleFonts.interTight(),
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                          elevation: 0,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ).animate().fade(
                         delay: 1000.ms,
                         duration: 2000.ms,
                         begin: 0.0,
@@ -140,36 +151,46 @@ class _MainWidgetState extends State<MainWidget> {
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      await context.pushNamed(
-                        SignUpWidget.routePath,
-                        extra: <String, dynamic>{
-                          '__transition_info__': const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                          ),
+                  child:
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await context.pushNamed(
+                            SignUpWidget.routePath,
+                            extra: <String, dynamic>{
+                              '__transition_info__': const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    text: 'Sign Up',
-                    options: FFButtonOptions(
-                      height: 40,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(97, 0, 97, 0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      // Consider moving this color to your theme.
-                      color: const Color(0xFF325D3A),
-                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                            font: GoogleFonts.interTight(),
-                            color: Colors.white,
-                            letterSpacing: 0.0,
+                        text: 'Sign Up',
+                        options: FFButtonOptions(
+                          height: 40,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                            97,
+                            0,
+                            97,
+                            0,
                           ),
-                      elevation: 0,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ).animate().fade(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            0,
+                            0,
+                            0,
+                          ),
+                          // Consider moving this color to your theme.
+                          color: const Color(0xFF325D3A),
+                          textStyle: FlutterFlowTheme.of(context).titleSmall
+                              .override(
+                                font: GoogleFonts.interTight(),
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                          elevation: 0,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ).animate().fade(
                         delay: 1000.ms,
                         duration: 2000.ms,
                         begin: 0.0,

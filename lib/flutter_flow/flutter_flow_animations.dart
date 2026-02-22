@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-export 'package:flutter_animate/flutter_animate.dart' show MoveEffect, FadeEffect, ScaleEffect, RotateEffect;
+export 'package:flutter_animate/flutter_animate.dart'
+    show MoveEffect, FadeEffect, ScaleEffect, RotateEffect;
 
 /// Animation triggers for FlutterFlow animations
-enum AnimationTrigger {
-  onPageLoad,
-  onActionTrigger,
-  onHover,
-}
+enum AnimationTrigger { onPageLoad, onActionTrigger, onHover }
 
 /// Animation configuration
 class AnimationInfo {
   final AnimationTrigger trigger;
   final List<Effect> Function() effectsBuilder;
 
-  AnimationInfo({
-    required this.trigger,
-    required this.effectsBuilder,
-  });
+  AnimationInfo({required this.trigger, required this.effectsBuilder});
 }
 
 /// Extension to add animation capabilities to widgets
